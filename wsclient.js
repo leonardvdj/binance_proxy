@@ -53,7 +53,7 @@ export default new class Client {
   async getCandles(symbol, interval, use_fake_candle) {
     let data = this.klines[symbol + interval];
     if (!data) {
-      console.log(`No candle cache for ${symbol}${interval}, creating...`);
+      console.log(`No candle cache for ${symbol}${interval}, creating`);
       this.klines[symbol + interval] = {
         is_init: true,
         is_refresh: false,
@@ -151,7 +151,7 @@ export default new class Client {
   async getDepth(symbol, limit) {
     let data = this.depth[symbol];
     if (!data) {
-      console.log(`No depth cache for ${symbol}, creating...`);
+      console.log(`No depth cache for ${symbol}, creating`);
       let req = await fetch(`https://api.binance.com/api/v3/depth?symbol=${symbol}&limit=20`);
       let res = await req.json();
       this.depth[symbol] = res;
