@@ -1,0 +1,15 @@
+{
+  "name": "bprox",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "main.js",
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.1",
+    "node-binance-api": "^0.13.0",
+    "node-fetch": "^2.6.1"
+  }
+}
