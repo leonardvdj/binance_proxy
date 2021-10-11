@@ -73,7 +73,7 @@ export default new class Client {
       data = this.klines[symbol + interval];
     }
     if (was_waiting) {
-      console.log(`Waited for ${symbol}${interval} init for ${(Date.now() - prev).toFixed(2)}ms`);
+      console.log(`Waited for ${symbol}${interval} init for ${((Date.now() - prev) / 1000).toFixed(2)}s`);
     }
     if (!data.is_refresh && data.candles[data.candles.length - 1][6] <= Date.now()) {
       data.is_refresh = true;
@@ -112,7 +112,7 @@ export default new class Client {
       data = this.klines[symbol + interval];
     }
     if (was_waiting) {
-      console.log(`Waited for ${symbol}${interval} refresh for ${(Date.now() - prev).toFixed(2)}ms`);
+      console.log(`Waited for ${symbol}${interval} refresh for ${((Date.now() - prev) / 1000).toFixed(2)}s`);
     }
     return data.candles;
   }
