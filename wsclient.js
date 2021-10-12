@@ -44,8 +44,10 @@ export default new class Client {
       if (matching_candle_index !== -1) {
         cache.candles[matching_candle_index] = new_candle;
       }else{
-        if (!cache.is_refresh)
+        if (!cache.is_refresh) {
           cache.candles.push(new_candle);
+          cache.candles = cache.candles.slice(-1000);
+        }
       }
     });
   }
@@ -96,6 +98,7 @@ export default new class Client {
           "0.0",                      // taker buy quote asset volume
           "0"                         // ignore
         ]);
+        data.candles = data.candles.slice(-1000);
       }else{
         console.log(`Refreshing candle data from api for ${symbol}${interval}`);
         let req = await fetch(`https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=1000`);
